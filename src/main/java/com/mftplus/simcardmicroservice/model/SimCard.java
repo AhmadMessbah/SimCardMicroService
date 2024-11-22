@@ -27,7 +27,7 @@ public class SimCard {
     @Column(name = "type")
     private SimCardType simCardType;
 
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.MERGE})
     @JoinColumn(
             name = "person",
             foreignKey = @ForeignKey(name = "fk_person_id")

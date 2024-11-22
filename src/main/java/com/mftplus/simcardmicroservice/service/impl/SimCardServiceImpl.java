@@ -2,6 +2,7 @@ package com.mftplus.simcardmicroservice.service.impl;
 
 import com.mftplus.simcardmicroservice.model.Person;
 import com.mftplus.simcardmicroservice.model.SimCard;
+import com.mftplus.simcardmicroservice.repository.PersonRepository;
 import com.mftplus.simcardmicroservice.repository.SimCardRepository;
 import com.mftplus.simcardmicroservice.service.PersonService;
 import com.mftplus.simcardmicroservice.service.SimCardService;
@@ -13,18 +14,20 @@ import java.util.List;
 @Service
 public class SimCardServiceImpl implements SimCardService {
     private final SimCardRepository simcardRepository;
+    private final PersonRepository personRepository;
     private final PersonService personService;
 
-    public SimCardServiceImpl(SimCardRepository simcardRepository, PersonService personService) {
+    public SimCardServiceImpl(SimCardRepository simcardRepository, PersonRepository personRepository, PersonService personService) {
         this.simcardRepository = simcardRepository;
+        this.personRepository = personRepository;
         this.personService = personService;
     }
 
     @Transactional
     public void save(SimCard simCard) {
-        System.out.println("Service");
         Person person = personService.postPerson(simCard.getPerson());
-        System.out.println(person);
+        personRepository.save(person);
+        simCard.setPerson(person);
         simcardRepository.save(simCard);
     }
 
