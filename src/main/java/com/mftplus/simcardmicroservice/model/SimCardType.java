@@ -1,6 +1,6 @@
 package com.mftplus.simcardmicroservice.model;
 
-public enum SimCartType {
+public enum SimCardType {
     Irancell,
     MCI,
     Rightel,

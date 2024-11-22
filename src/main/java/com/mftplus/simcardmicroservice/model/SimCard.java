@@ -25,7 +25,7 @@ public class SimCard {
     private String number;
 
     @Column(name = "type")
-    private SimCartType simCartType;
+    private SimCardType simCardType;
 
     @ManyToOne
     @JoinColumn(
