@@ -1,5 +1,7 @@
 package com.mftplus.simcardmicroservice.service.impl;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mftplus.simcardmicroservice.model.Person;
 import com.mftplus.simcardmicroservice.model.SimCard;
 import com.mftplus.simcardmicroservice.repository.PersonRepository;
@@ -26,12 +28,14 @@ public class SimCardServiceImpl implements SimCardService {
     }
 
     @Transactional
-    public void save(SimCard simCard) {
+    public void save(SimCard simCard) throws JsonProcessingException {
         ResponseEntity<String> response = personService.postPerson(simCard.getPerson());
         if (response.getStatusCode().equals(HttpStatus.OK)) {
-//            personRepository.save(person);
-//            simCard.setPerson(person);
-//            simcardRepository.save(simCard);
+            ObjectMapper mapper = new ObjectMapper();
+            Person person = mapper.readValue(response.getBody(), Person.class);
+            personRepository.save(person);
+            simCard.setPerson(person);
+            simcardRepository.save(simCard);
             System.out.println(response.getBody());
         } else {
             System.out.println("Error :" + response.getStatusCode() + " : " + response.getBody());
