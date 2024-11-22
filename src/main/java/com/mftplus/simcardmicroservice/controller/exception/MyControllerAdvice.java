@@ -3,11 +3,12 @@ package com.mftplus.simcardmicroservice.controller.exception;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.HttpServerErrorException;
 import org.springframework.web.client.HttpStatusCodeException;
 
-@ControllerAdvice
+@RestControllerAdvice
 public class MyControllerAdvice {
     @ExceptionHandler
     public ResponseEntity<String> exceptionHandler(Exception ex) {
