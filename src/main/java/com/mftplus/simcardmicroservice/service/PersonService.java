@@ -10,5 +10,5 @@ import org.springframework.web.bind.annotation.RequestBody;
 public interface PersonService {
 
     @PostMapping("/persons")
-    ResponseEntity<String> postPerson(@RequestBody Person person) ;
+    Person postPerson(@RequestBody Person person) ;
 }
