@@ -6,5 +6,38 @@
 </head>
 <body>
 
+<form action="/persons" method="post">
+    <input type="text" id="name" name="name">
+    <input type="text" id="family" name="family">
+    <input type="text" id="nationalId" name="nationalId">
+</form>
+<button onclick="save()">Save</button>
+
+<script>
+
+    async function save() {
+        const name = document.getElementById("name").value
+        const family = document.getElementById("family").value
+        const nationalId = document.getElementById("nationalId").value
+
+        const response = await fetch(URL = "http://192.168.39.38/persons", {
+            method: "POST",
+            body: JSON.stringify({name: name, family: family, national_id: nationalId}),
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+        });
+        if (response.status === 200) {
+            const data = await response.json()
+            console.log(data)
+        }else{
+            console.log(response.data.text());
+            console.log(response.text());
+        }
+    }
+
+</script>
+
 </body>
 </html>
