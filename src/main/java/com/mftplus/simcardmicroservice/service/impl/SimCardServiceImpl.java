@@ -27,14 +27,14 @@ public class SimCardServiceImpl implements SimCardService {
 
     @Transactional
     public void save(SimCard simCard) {
-        ResponseEntity<String> response =  personService.postPerson(simCard.getPerson());
+        ResponseEntity<String> response = personService.postPerson(simCard.getPerson());
         if (response.getStatusCode().equals(HttpStatus.OK)) {
 //            personRepository.save(person);
 //            simCard.setPerson(person);
 //            simcardRepository.save(simCard);
             System.out.println(response.getBody());
-        }else{
-            System.out.println("Error :" + response.getBody());
+        } else {
+            System.out.println("Error :" + response.getStatusCode() + " : " + response.getBody());
         }
     }
 

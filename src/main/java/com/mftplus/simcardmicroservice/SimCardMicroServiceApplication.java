@@ -23,7 +23,7 @@ public class SimCardMicroServiceApplication {
         SimCard simCard =
                 SimCard
                         .builder()
-                        .person(Person.builder().name("ali").family("alipour").nationalId("1234567890").build())
+                        .person(Person.builder().name("ali").family("alitpour").nationalId("1234567890").build())
                         .number("09178505323")
                         .simCardType(SimCardType.MCI)
                         .build();
