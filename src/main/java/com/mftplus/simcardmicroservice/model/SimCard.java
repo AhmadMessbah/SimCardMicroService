@@ -21,7 +21,7 @@ public class SimCard {
     private Long id;
 
     @Column(name = "number")
-    @Pattern(regexp = "^(09 | +989)\\d{9}$", message = "Invalid Phone Number")
+    @Pattern(regexp = "^(09|\\+989)\\d{9}$", message = "Invalid Phone Number")
     private String number;
 
     @Column(name = "type")
