@@ -1,5 +1,6 @@
 package com.mftplus.simcardmicroservice.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,9 +27,11 @@ public class Person {
     private String family;
 
     @Column(name = "national_id")
+    @JsonProperty(value = "national_id")
     private String nationalId;
 
     @Column(name = "phone_number")
+    @JsonProperty(value = "phone_number")
     private String phoneNumber;
 
     @Column(name = "address")
