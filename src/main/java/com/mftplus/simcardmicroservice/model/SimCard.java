@@ -24,6 +24,9 @@ public class SimCard {
     @Pattern(regexp = "^(09 | +989)\\d{9}$", message = "Invalid Phone Number")
     private String number;
 
+    @Column(name = "type")
+    private SimCartType simCartType;
+
     @ManyToOne
     @JoinColumn(
             name = "person",
