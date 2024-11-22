@@ -36,7 +36,7 @@ public class SimCardServiceImpl implements SimCardService {
             personRepository.save(person);
             simCard.setPerson(person);
             simcardRepository.save(simCard);
-            System.out.println(response.getBody());
+            System.out.println(mapper.writeValueAsString(person));
         } else {
             System.out.println("Error :" + response.getStatusCode() + " : " + response.getBody());
         }
