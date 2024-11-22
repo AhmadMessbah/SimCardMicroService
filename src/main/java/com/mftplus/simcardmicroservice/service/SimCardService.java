@@ -5,6 +5,9 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class SimCardService {
-    @Autowired
-    private PersonService personService;
+    private final PersonService personService;
+
+    public SimCardService(PersonService personService) {
+        this.personService = personService;
+    }
 }
