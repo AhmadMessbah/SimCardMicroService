@@ -10,6 +10,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 @FeignClient(value="personClient", url = "http://192.168.39.100")
 public interface PersonService {
 
-    @PostMapping("/person")
+    @PostMapping("/persons")
     ResponseEntity<String> postPerson(@RequestBody Person person) ;
 }
