@@ -1,13 +1,15 @@
 package com.mftplus.simcardmicroservice.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import com.mftplus.simcardmicroservice.model.SimCard;
 import org.springframework.stereotype.Service;
 
-@Service
-public class SimCardService {
-    private final PersonService personService;
+import java.util.List;
 
-    public SimCardService(PersonService personService) {
-        this.personService = personService;
-    }
+@Service
+public interface SimCardService {
+    void save(SimCard simCard);
+    void update(SimCard simCard);
+    void delete(SimCard simCard);
+    List<SimCard> findAll();
+    SimCard findById(Long id);
 }
