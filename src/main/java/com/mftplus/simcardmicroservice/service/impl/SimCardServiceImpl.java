@@ -7,6 +7,8 @@ import com.mftplus.simcardmicroservice.repository.SimCardRepository;
 import com.mftplus.simcardmicroservice.service.PersonService;
 import com.mftplus.simcardmicroservice.service.SimCardService;
 import jakarta.transaction.Transactional;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -25,10 +27,15 @@ public class SimCardServiceImpl implements SimCardService {
 
     @Transactional
     public void save(SimCard simCard) {
-        Person person = personService.postPerson(simCard.getPerson());
-        personRepository.save(person);
-        simCard.setPerson(person);
-        simcardRepository.save(simCard);
+        ResponseEntity<String> response =  personService.postPerson(simCard.getPerson());
+        if (response.getStatusCode().equals(HttpStatus.OK)) {
+//            personRepository.save(person);
+//            simCard.setPerson(person);
+//            simcardRepository.save(simCard);
+            System.out.println(response.getBody());
+        }else{
+            System.out.println("Error :" + response.getBody());
+        }
     }
 
     @Override
