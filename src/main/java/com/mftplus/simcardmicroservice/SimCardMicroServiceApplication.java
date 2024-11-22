@@ -2,6 +2,7 @@ package com.mftplus.simcardmicroservice;
 
 import com.mftplus.simcardmicroservice.model.Person;
 import com.mftplus.simcardmicroservice.model.SimCard;
+import com.mftplus.simcardmicroservice.model.SimCardType;
 import com.mftplus.simcardmicroservice.service.SimCardService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -24,6 +25,7 @@ public class SimCardMicroServiceApplication {
                         .builder()
                         .person(Person.builder().Name("ali").family("alipour").nationalId("1234567890").build())
                         .number("09178505323")
+                        .simCardType(SimCardType.MCI)
                         .build();
         service.save(simCard);
     }
