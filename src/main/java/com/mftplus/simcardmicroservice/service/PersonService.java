@@ -7,8 +7,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-@Component
-@FeignClient(name="personClient", url = "192.168.39.100")
+@FeignClient(value="personClient", url = "http://192.168.39.100")
 public interface PersonService {
 
     @PostMapping("/person")
