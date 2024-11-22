@@ -21,7 +21,7 @@ public class Person {
     private Long id;
 
     @Column(name = "name")
-    private String Name;
+    private String name;
 
     @Column(name = "family")
     private String family;
