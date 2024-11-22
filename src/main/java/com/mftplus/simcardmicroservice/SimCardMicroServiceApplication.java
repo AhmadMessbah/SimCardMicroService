@@ -1,5 +1,6 @@
 package com.mftplus.simcardmicroservice;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.mftplus.simcardmicroservice.model.Person;
 import com.mftplus.simcardmicroservice.model.SimCard;
 import com.mftplus.simcardmicroservice.model.SimCardType;
@@ -17,7 +18,7 @@ public class SimCardMicroServiceApplication {
         SimCardMicroServiceApplication.service = service;
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws JsonProcessingException {
         SpringApplication.run(SimCardMicroServiceApplication.class, args);
 
         SimCard simCard =
