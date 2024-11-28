@@ -36,4 +36,11 @@ public class Person {
 
     @Column(name = "address")
     private String address;
+
+    @OneToOne
+    @JoinColumn(
+            name = "username",
+            foreignKey = @ForeignKey(name = "fk_person_user")
+    )
+    private User user;
 }
